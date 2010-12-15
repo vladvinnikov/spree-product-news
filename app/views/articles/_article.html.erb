@@ -17,7 +17,9 @@
   
   <% if @articles %>
   <div class="meta">
+    <% if Spree::Config[:disqus_id] %>
     <p class="comments"><a href="<%= article_url article %>#respond" title="Comment on <%= article.title %>">Comments &#187;</a></p>
+    <% end %>
     <p class="time">Posted @ <%= format_time article.date %></p>
     <br class="clear" />
   </div>
