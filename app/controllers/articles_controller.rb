@@ -13,7 +13,7 @@ class ArticlesController < Spree::BaseController
   end
   
   def archive
-    @articles = Article.find_articles(:year => params[:year], :month => params[:month])
+    @articles = Article.find_articles(:year => params[:year] )
     render :action => 'index'
   end
   

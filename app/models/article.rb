@@ -26,8 +26,8 @@ class Article < FileModel
     end
   end
 
-  def self.archive_months
-    @@archive_months ||= files.map{|f| File.basename(f).split('-')[0..1] }.uniq
+  def self.archive_years
+    @@archive_years ||= files.map{|f| File.basename(f).split('-')[0] }.uniq
   end
 
   # Store list of articles for each tag in a hash
