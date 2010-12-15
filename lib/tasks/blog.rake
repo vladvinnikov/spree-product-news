@@ -9,7 +9,7 @@ namespace :blog do
     article << "\n"
     article << "Lorem ipsum dolor sit amet...\n\n"
 
-    path = "#{RAILS_ROOT}/content/articles/#{Time.now.strftime("%Y-%m-%d")}#{'-' + slug if slug}.txt"
+    path = "#{RAILS_ROOT}/content/article/#{Time.now.strftime("%Y-%m-%d")}#{'-' + slug if slug}.txt"
 
     unless File.exist? path
       File.open(path, "w") do |file|
