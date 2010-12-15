@@ -1,5 +1,5 @@
 <% self.title = "Blog - " + @article.title %>
-<% @body_class = 'blog' %>
+<% @body_class = 'news' %>
 
 <div class="navigation">
   <% if @article.previous %>
@@ -21,7 +21,7 @@
     var disqus_developer = <%= RAILS_ENV == 'development' ? '1' : '0' %>;
   </script>
   <noscript><a href="http://spreecommerce.disqus.com/?url=ref">View the discussion thread.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="http://disqus.com" class="dsq-brlink">news comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 <% end %>
 

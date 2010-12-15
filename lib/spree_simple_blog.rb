@@ -9,7 +9,7 @@ module SimpleBlogExtension
 
       AppConfiguration.class_eval do
         preference :disqus_id, :default => nil
-        preference :blog_feed_url, :default => '/blog.xml'
+        preference :news_feed_url, :default => '/news.xml'
       end
 
     end

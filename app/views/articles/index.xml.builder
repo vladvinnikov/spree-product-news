@@ -1,9 +1,9 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  xml.title Spree::Config[:blog_feed_title]
-  xml.id Spree::Config[:blog_feed_url]
+  xml.title Spree::Config[:news_feed_title]
+  xml.id Spree::Config[:news_feed_url]
   xml.updated @articles.first.date.xmlschema unless @articles.empty?
-  xml.author { xml.name Spree::Config[:blog_feed_author] }
+  xml.author { xml.name Spree::Config[:news_feed_author] }
 
   @articles.each do |article|
     xml.entry do

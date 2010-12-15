@@ -1,4 +1,4 @@
-namespace :blog do
+namespace :news do
   
   task :new => :environment do
   

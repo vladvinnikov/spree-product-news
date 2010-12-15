@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  match '/blog',                              :to => 'articles#index',   :as => 'blog_articles'
-  match '/blog.:format',                      :to => 'articles#index',   :as => 'blog_articles'
-  match '/blog/tag/:tag',                     :to => 'articles#tag',     :as => 'blog_tag'
-  match '/blog/page/:page',                   :to => 'articles#index',   :as => 'blog_articles_page'
-  match '/blog/:year/:month',                 :to => 'articles#archive', :as => 'blog_articles_archive'
-  match '/blog/:year/:month/:day/:permalink', :to => 'articles#show',    :as => 'blog_article'
+  match '/news',                              :to => 'articles#index',   :as => 'news_articles'
+  match '/news.:format',                      :to => 'articles#index',   :as => 'news_articles'
+  match '/news/tag/:tag',                     :to => 'articles#tag',     :as => 'news_tag'
+  match '/news/page/:page',                   :to => 'articles#index',   :as => 'news_articles_page'
+  match '/news/:year',                        :to => 'articles#archive', :as => 'news_articles_archive'
+  match '/news/:year/:month/:day/:permalink', :to => 'articles#show',    :as => 'news_article'
 
 end

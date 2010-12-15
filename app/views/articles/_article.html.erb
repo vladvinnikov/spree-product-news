@@ -26,7 +26,7 @@
   <% else %>
     <% if @article.tags.present? %>
     <p>Tags: 
-      <%= @article.tags.split(',').map { |tag|  link_to(tag, blog_tag_path(tag), :rel => 'tag')}.join(', ') %>
+      <%= @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
     <% end %>
   <% end %>
 

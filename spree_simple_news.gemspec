@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_simple_blog'
   s.version     = version
-  s.summary     = 'Toto style blogging for Spree'
+  s.summary     = 'Toto style newsging for Spree'
   s.required_ruby_version = '>= 1.8.7'
 
   s.files        = Dir['README.markdown', 'lib/**/*', 'app/**/*', 'config/*']

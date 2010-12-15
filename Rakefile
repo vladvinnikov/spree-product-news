@@ -99,7 +99,7 @@ namespace :spec do
   end
 end
 
-desc 'Generate documentation for the simple_blog extension.'
+desc 'Generate documentation for the simple_news extension.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'SimpleBlogExtension'
@@ -109,7 +109,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
 end
 
 # For extensions that are in transition
-desc 'Test the simple_blog extension.'
+desc 'Test the simple_news extension.'
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib'
   t.pattern = 'test/**/*_test.rb'
@@ -117,14 +117,14 @@ Rake::TestTask.new(:test) do |t|
 end
 
 namespace :test do
-  desc 'Functional test the simple_blog extension.'
+  desc 'Functional test the simple_news extension.'
   Rake::TestTask.new(:functionals) do |t|
     t.libs << 'lib'
     t.pattern = 'test/functional/*_test.rb'
     t.verbose = true
   end
 
-  desc 'Unit test the simple_blog extension.'
+  desc 'Unit test the simple_news extension.'
   Rake::TestTask.new(:units) do |t|
     t.libs << 'lib'
     t.pattern = 'test/unit/*_test.rb'

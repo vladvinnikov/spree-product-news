@@ -1,6 +1,6 @@
 namespace :spree do
   namespace :extensions do
-    namespace :simple_blog do
+    namespace :simple_news do
       desc "Copies public assets of the Simple Blog to the instance public/ directory."
       task :update => :environment do
         is_svn_git_or_dir = proc {|path| path =~ /\.svn/ || path =~ /\.git/ || File.directory?(path) }
