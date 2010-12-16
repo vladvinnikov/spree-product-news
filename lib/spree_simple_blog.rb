@@ -8,7 +8,6 @@ module SimpleBlogExtension
       end
 
       AppConfiguration.class_eval do
-        preference :disqus_id, :default => nil
         preference :news_feed_url, :default => '/news.xml'
       end
 
