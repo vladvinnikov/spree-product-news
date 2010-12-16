@@ -9,8 +9,8 @@ class Article < FileModel
     options[:offset] = (options[:page]-1) * options[:per_page]
     options[:limit] = options[:per_page]
 
-    if options[:year] and options[:month]
-      options[:match] = %r(\/#{options[:year]}-#{options[:month].to_s.rjust(2,'0')})
+    if options[:year] 
+      options[:match] = %r(\/#{options[:year]})
     end
 
     all(options)

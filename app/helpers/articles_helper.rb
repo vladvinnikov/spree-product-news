@@ -14,9 +14,8 @@ module ArticlesHelper
     time.strftime("%I:%m%p")
   end
 
-  def link_to_archive(archive_month)
-    text = "#{Date::MONTHNAMES[archive_month.last.to_i]} #{archive_month.first.to_i}"
-    link_to text, news_articles_archive_url(:year => archive_month.first )
+  def link_to_archive(archive_year)
+    link_to archive_year.to_s, news_articles_archive_url(:year => archive_year )
   end
 
   def link_to_article(article, options = {})
@@ -24,7 +23,7 @@ module ArticlesHelper
   end
   
   def article_url(article)
-    news_article_url :permalink => article.slug, :year => article.date.year, :month => article.date.month, :day => article.date.day
+    news_article_url :permalink => article.slug, :year => article.date.year
   end
 
   def url_escape(string)

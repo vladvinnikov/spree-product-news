@@ -1,12 +1,13 @@
-<% self.title = "Blog" %>
-<% @body_class = 'news' %>
+<% self.title = "News" %>
+
 
 <% if params[:tag] %>
-	<h2 class="pagetitle">Posts Tagged &lsquo;<%= params[:tag] %>&rsquo;</h2>
-<% elsif params[:year] && params[:month] %>
-	<h2 class="pagetitle">Archive for <%= Date::MONTHNAMES[params[:month].to_i] %>, <%= params[:year].to_i %></h2>
+	<h2 class="pagetitle">News Tagged &lsquo;<%= params[:tag] %>&rsquo;</h2>
+<% elsif params[:year]  %>
+	<h2 class="pagetitle">Archive for <%= params[:year].to_i %>, <%= params[:year].to_i %></h2>
 <% end %>
 
+<% first = @articles.pop %>
 <%= render :partial => 'article', :collection => @articles %>
 
 <% if @total_pages %>

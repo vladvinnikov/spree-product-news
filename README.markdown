@@ -1,6 +1,8 @@
-= Spree Simple Blog
+= Spree Product News
 
-Adds a simple news to Spree which works much like Toto (http://github.com/cloudhead/toto/), reading text files in /content/articles. Content files consist of
-yaml metadata followed by Markdown content.
+Adds a simple news to Spree, reading text files in /content/article. 
+Content files consist of yaml metadata followed by Markdown content.
 
-By extending FileModel, other types of content can be managed in the same way way.
+There is a way to specify a product for the news item, which will be rendered next to the article.
+
+Archives and xml feed included. Very basic layout.

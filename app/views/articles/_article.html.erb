@@ -1,7 +1,7 @@
 <div class="post">
 
   <div class="heading">
-    <h2><%= link_to_article article %></h2>
+    <h3><%= link_to_article article %></h3>
     <p>
       <span class="author">by <strong><%= article.author %></strong></span>
       &bull;
@@ -12,14 +12,12 @@
   <div class="entry">
 
     <%= html_transform article.body %>
-
+    
+    <% article %>
   </div>
   
   <% if @articles %>
   <div class="meta">
-    <% if Spree::Config[:disqus_id] %>
-    <p class="comments"><a href="<%= article_url article %>#respond" title="Comment on <%= article.title %>">Comments &#187;</a></p>
-    <% end %>
     <p class="time">Posted @ <%= format_time article.date %></p>
     <br class="clear" />
   </div>
