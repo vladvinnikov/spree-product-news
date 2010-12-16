@@ -71,6 +71,7 @@ class FileModel
   end
 
   def self.from_file(file)
+    file = Dir[file].first
     meta, body = File.read(file).split(/\n\n/, 2)
     meta = YAML.load(meta)
     key = File.basename(file).gsub('.txt','')

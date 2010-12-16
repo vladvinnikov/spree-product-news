@@ -23,7 +23,7 @@ class ArticlesController < Spree::BaseController
   end
   
   def show
-    key = "#{params[:year]}-#{params[:month].rjust(2,'0')}-#{params[:day].rjust(2,'0')}-#{params[:permalink]}"
+    key = "#{params[:year]}-*-#{params[:permalink]}"
     @article = Article.find(key)
   end
   
