@@ -1,4 +1,4 @@
-module SimpleBlogExtension
+module ProductNewsExtension
   class Engine < Rails::Engine
     
     def self.activate

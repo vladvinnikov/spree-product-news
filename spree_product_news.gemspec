@@ -1,10 +1,10 @@
-version = '3.0.1'
+version = '0.0.1'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_simple_blog'
+  s.name        = 'spree_product_news'
   s.version     = version
-  s.summary     = 'Toto style newsging for Spree'
+  s.summary     = 'Simple news which may be product related'
   s.required_ruby_version = '>= 1.8.7'
 
   s.files        = Dir['README.markdown', 'lib/**/*', 'app/**/*', 'config/*']
