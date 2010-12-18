@@ -1,4 +1,10 @@
 class Article < FileModel
+  attr_accessor :slug
+  
+  def initialize(file, key, meta, body)
+    super(file, key, meta, body)
+    @slug = key.split("-").last
+  end
   
   def self.find_articles(options = {})
     options = {
