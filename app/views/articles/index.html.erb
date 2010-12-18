@@ -7,8 +7,8 @@
 	<h2 class="pagetitle">Archive for <%= params[:year].to_i %>, <%= params[:year].to_i %></h2>
 <% end %>
 
-<% first = @articles.pop %>
-<%= render :partial => 'article', :collection => @articles %>
+<%= render 'article', :article => @article %>
+<%= render :partial => 'article_small', :collection => @articles %>
 
 <% if @total_pages %>
 <div class="navigation">

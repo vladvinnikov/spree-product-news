@@ -6,6 +6,7 @@ class ArticlesController < Spree::BaseController
     @current_page = (params[:page] || 1).to_i
     @total_pages = (Article.count / @per_page.to_f).ceil
     @articles = Article.find_articles(:page => @current_page)
+    @article = @articles.pop
     respond_to do |wants|
       wants.html {}
       wants.xml {}
@@ -24,6 +25,7 @@ class ArticlesController < Spree::BaseController
   
   def show
     key = "#{params[:year]}-*-#{params[:permalink]}"
+    puts "key #{key}"
     @article = Article.find(key)
   end
   

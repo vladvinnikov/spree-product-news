@@ -5,7 +5,7 @@ namespace :news do
     title = ask('Title: ')
     slug = title.empty?? nil : title.strip.parameterize.to_s
 
-    article = {'slug' => slug, 'title' => title, 'author' => 'Author', 'tags' => '', 'date' => Date.today}.to_yaml
+    article = {'slug' => slug, 'title' => title, 'tags' => '', 'date' => Date.today}.to_yaml
     article << "\n"
     article << "Lorem ipsum dolor sit amet...\n\n"
 

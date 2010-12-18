@@ -2,11 +2,6 @@
 
   <div class="heading">
     <h3><%= link_to_article article %></h3>
-    <p>
-      <span class="author">by <strong><%= article.author %></strong></span>
-      &bull;
-      <span class="date"><%= format_date article.date %></span> 
-    </p>
   </div>
 
   <div class="entry">
@@ -18,7 +13,7 @@
   
   <% if @articles %>
   <div class="meta">
-    <p class="time">Posted @ <%= format_time article.date %></p>
+    <p>      <span class="date">Posted @ <%= format_date article.date %></span>    </p>
     <br class="clear" />
   </div>
   <% else %>

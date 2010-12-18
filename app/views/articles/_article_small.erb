@@ -1,0 +1,14 @@
+<div class="post">
+
+  <div class="heading">
+    <h3><%= link_to_article article_small %></h3>
+  </div>
+
+  <div class="entry">
+
+    <%= html_transform article_small.body[0 ... 80] + "...." %>
+    
+    <% article_small %>
+  </div>
+  
+</div>

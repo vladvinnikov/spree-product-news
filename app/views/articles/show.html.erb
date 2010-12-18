@@ -1,17 +1,17 @@
 <% self.title = "News - " + @article.title %>
 
+<%= render 'article', :article => @article %>
+
+
 <div class="navigation">
   <% if @article.previous %>
-	<div class="alignleft">&laquo; <%= link_to_article @article.previous %></div>
+	<div class="alignleft">Previous: <%= link_to_article @article.previous %></div>
 	<% end %>
   <% if @article.next %>
-	<div class="alignright"><%= link_to_article @article.next %> &raquo;</div>
+	<div class="alignright">Next: <%= link_to_article @article.next %> </div>
 	<% end %>
 	<br class="clear" />
 </div>
-
-<%= render 'article', :article => @article %>
-
 
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>

@@ -3,7 +3,6 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title Spree::Config[:news_feed_title]
   xml.id Spree::Config[:news_feed_url]
   xml.updated @articles.first.date.xmlschema unless @articles.empty?
-  xml.author { xml.name Spree::Config[:news_feed_author] }
 
   @articles.each do |article|
     xml.entry do
@@ -12,7 +11,6 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.id article_url(article)
       xml.published article.date.xmlschema
       xml.updated article.date.xmlschema
-      xml.author { xml.name article.author }
       xml.content("type" => "html") { xml.cdata!(html_transform(article.body)) }
     end
   end
