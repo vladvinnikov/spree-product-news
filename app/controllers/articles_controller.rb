@@ -27,6 +27,9 @@ class ArticlesController < Spree::BaseController
     key = "#{params[:year]}-*-#{params[:permalink]}"
     puts "key #{key}"
     @article = Article.find(key)
+    prods = Product.where(["name LIKE ?", "%#{@article.product_name}%"]) 
+    @product = prods.first if prods 
+    puts "PROD #{@product}"  
   end
   
 end

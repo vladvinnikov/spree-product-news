@@ -1,0 +1,14 @@
+<div width=200>
+
+  <h3><%= @product.name %></h1>
+
+  <div>
+    <div>
+      <%= link_to small_image(product), product %>
+    </div>
+  </div>
+
+  <div>
+      <%= raw @product.description[0 ... 100] + "..." %>
+  </div>
+</div>

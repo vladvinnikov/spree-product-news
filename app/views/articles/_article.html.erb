@@ -1,26 +1,26 @@
-<div class="post">
-
-  <div class="heading">
-    <h3><%= link_to_article article %></h3>
-  </div>
-
-  <div class="entry">
-
-    <%= html_transform article.body %>
-    
-    <% article %>
-  </div>
   
-  <% if @articles %>
-  <div class="meta">
-    <p>      <span class="date">Posted @ <%= format_date article.date %></span>    </p>
-    <br class="clear" />
-  </div>
-  <% else %>
-    <% if @article.tags.present? %>
-    <p>Tags: 
-      <%= @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
-    <% end %>
-  <% end %>
+  <div  width="500" class="right">
 
-</div>
+    <div class="heading">
+      <h3><%= link_to_article article %></h3>
+    </div>
+
+      <div class="entry">
+
+        <%= html_transform article.body %>
+
+        <% article %>
+      </div>
+      <div class="meta">
+        <% if @article.tags.present? %>
+          Tags: 
+          <%= raw @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
+        <% end %>
+        <span class="date">Posted @ <%= format_date article.date %></span>    
+      </div>
+
+    </div>
+
+    <div width="350" class="left">
+      <%=      render 'product_box' , :product =>  @product if @product %>
+    </div>
