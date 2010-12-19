@@ -1,26 +1,38 @@
-  
-  <div  width="500" class="right">
 
-    <div class="heading">
-      <h3><%= link_to_article article %></h3>
-    </div>
+<div  <%=has_extra? ? 'class="leftie"':'width="800"'%> >
 
-      <div class="entry">
+  <div class="heading">
+    <h3><%= link_to_article article %></h3>
+  </div>
 
-        <%= html_transform article.body %>
+  <div class="entry">
 
-        <% article %>
-      </div>
-      <div class="meta">
-        <% if @article.tags.present? %>
-          Tags: 
-          <%= raw @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
-        <% end %>
-        <span class="date">Posted @ <%= format_date article.date %></span>    
-      </div>
+    <%= html_transform article.body %>
 
-    </div>
+    <% article %>
+  </div>
+  <div class="meta">
+    <% if @article.tags.present? %>
+      Tags: 
+      <%= raw @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
+    <% end %>
+    <span class="date">Posted @ <%= format_date article.date %></span>    
+  </div>
 
-    <div width="350" class="left">
-      <%=      render 'product_box' , :product =>  @product if @product %>
-    </div>
+  <div class="navigation">
+    <% if @article.previous %>
+  	<div class="alignleft">Previous: <%= link_to_article @article.previous %></div>
+  	<% end %>
+    <% if @article.next %>
+  	<div class="alignright">Next: <%= link_to_article @article.next %> </div>
+  	<% end %>
+  	<br class="clear" />
+  </div>
+
+</div>
+
+<% if has_extra? %>
+  <div  class="rightie">
+    <%= render 'product_box' , :product =>  @product  %>
+  </div>
+<% end %>

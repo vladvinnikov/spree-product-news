@@ -32,5 +32,9 @@ module ArticlesHelper
     end.tr(' ', '+')
   end
   
+  def has_extra?
+    return true if @product != nil
+  end
+  
 end
 

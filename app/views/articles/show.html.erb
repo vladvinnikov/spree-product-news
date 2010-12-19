@@ -3,16 +3,6 @@
 <%= render 'article', :article => @article %>
 
 
-<div class="navigation">
-  <% if @article.previous %>
-	<div class="alignleft">Previous: <%= link_to_article @article.previous %></div>
-	<% end %>
-  <% if @article.next %>
-	<div class="alignright">Next: <%= link_to_article @article.next %> </div>
-	<% end %>
-	<br class="clear" />
-</div>
-
 <% content_for :sidebar do %>
   <%= render 'sidebar' %>
 <% end %>
