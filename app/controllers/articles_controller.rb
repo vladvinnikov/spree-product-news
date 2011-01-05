@@ -7,6 +7,7 @@ class ArticlesController < Spree::BaseController
     @total_pages = (Article.count / @per_page.to_f).ceil
     @articles = Article.find_articles(:page => @current_page)
     @article = @articles.pop
+    set_extra
     respond_to do |wants|
       wants.html {}
       wants.xml {}
@@ -27,9 +28,14 @@ class ArticlesController < Spree::BaseController
     key = "#{params[:year]}-*-#{params[:permalink]}"
     puts "key #{key}"
     @article = Article.find(key)
+    set_extra
+  end
+  
+  def set_extra
+    return unless @article.product_name
     prods = Product.where(["name LIKE ?", "%#{@article.product_name}%"]) 
     @product = prods.first if prods 
-    puts "PROD #{@product}"  
+    puts "PROD #{@product.name}  FOR #{@article.product_name}"  
   end
   
 end
