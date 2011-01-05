@@ -1,14 +1,21 @@
-<div width=200>
+<div class="prodinfo2">
+	     <div class="prodimage"> 
+		<%= link_to small_image(product), product %>
+	 </div>
+	<div class="prodinfo3">
 
-  <h3><%= @product.name %></h1>
+	  <h3><%= @product.name %></h3>
+ 	  <%= raw @product.description[0 ... 150] + "..." %>
+	 </div>
+</div>
 
-  <div>
-    <div>
-      <%= link_to small_image(product), product %>
-    </div>
-  </div>
+<div class="prodinfo2">
+	     <div class="prodimage"> 
+		<%= link_to small_image(product), product %>
+	 </div>
+	<div class="prodinfo3">
 
-  <div>
-      <%= raw @product.description[0 ... 100] + "..." %>
-  </div>
+	  <h3><%= @product.name %></h3>
+ 	  <%= raw @product.description[0 ... 150] + "..." %>
+	 </div>
 </div>

@@ -1,17 +1,17 @@
+<div class="container-news">
 
-<div  <%=has_extra? ? 'class="leftie"':'width="800"'%> >
-
-  <div class="heading">
+<div class="news">
+	  <div>
     <h3><%= link_to_article article %></h3>
   </div>
 
-  <div class="entry">
+  <div>
 
     <%= html_transform article.body %>
 
     <% article %>
   </div>
-  <div class="meta">
+  <div>
     <% if @article.tags.present? %>
       Tags: 
       <%= raw @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
@@ -19,7 +19,7 @@
     <span class="date">Posted @ <%= format_date article.date %></span>    
   </div>
 
-  <div class="navigation">
+  <div>
     <% if @article.previous %>
   	<div class="alignleft">Previous: <%= link_to_article @article.previous %></div>
   	<% end %>
@@ -28,11 +28,24 @@
   	<% end %>
   	<br class="clear" />
   </div>
-
 </div>
 
+
+<%= render 'product_box' , :product =>  @product  %>
+</div>
+
+<!--
+
 <% if has_extra? %>
-  <div  class="rightie">
+  <div  class="prodinfo">
     <%= render 'product_box' , :product =>  @product  %>
   </div>
 <% end %>
+
+<div  class="prodinfo">
+  <%= render 'product_box' , :product =>  @product  %>
+</div>
+
+-->
+
+
