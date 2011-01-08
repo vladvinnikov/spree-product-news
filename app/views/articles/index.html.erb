@@ -1,5 +1,8 @@
-<% self.title = "News" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'product-news.css' %>
+<% end %>
 
+<% self.title = "News" %>
 
 <% if params[:tag] %>
 	<h2 class="pagetitle">News Tagged &lsquo;<%= params[:tag] %>&rsquo;</h2>
