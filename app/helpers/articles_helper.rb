@@ -32,8 +32,12 @@ module ArticlesHelper
     end.tr(' ', '+')
   end
   
-  def has_extra?
-    return true if @product != nil
+  def has_products?
+    @products.length > 0
+  end
+
+  def has_image?
+    @image != nil
   end
   
 end

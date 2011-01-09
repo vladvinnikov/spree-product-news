@@ -31,11 +31,22 @@ class ArticlesController < Spree::BaseController
     set_extra
   end
   
+  private
+  
   def set_extra
-    return unless @article.product_name
-    prods = Product.where(["name LIKE ?", "%#{@article.product_name}%"]) 
-    @product = prods.first if prods 
-    puts "PROD #{@product ? @product.name : 'No product'}  FOR #{@article.product_name}"  
+    @products = []
+    if @article.product_name
+      parts = @article.product_name.split(',')
+      parts.each do |name| 
+        name.strip!
+        prods = Product.where(["name LIKE ?", "%#{name}%"]).limit(1).first
+        @products << prods if prods 
+        #puts "Adding Product #{prods ? prods.name : 'No product'}  FOR #{name}"  
+      end
+    end
+    if @article.image
+      @image = @article.image
+    end
   end
   
 end
