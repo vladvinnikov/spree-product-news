@@ -35,7 +35,7 @@ class ArticlesController < Spree::BaseController
     return unless @article.product_name
     prods = Product.where(["name LIKE ?", "%#{@article.product_name}%"]) 
     @product = prods.first if prods 
-    puts "PROD #{@product.name}  FOR #{@article.product_name}"  
+    puts "PROD #{@product.name}  FOR #{@article.product_name}"  if @product
   end
   
 end
