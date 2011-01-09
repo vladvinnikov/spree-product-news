@@ -1,5 +1,5 @@
 <div id="recent-news">
-  <h2>Recent News</h2>	
+  <h2><%= I18n.t(:recent) %></h2>	
   <ul>
     <% for article in Article.recent %>
   		<li><%= link_to_article article %></li>

@@ -2,7 +2,7 @@
   <%= stylesheet_link_tag 'product_news.css' %>
 <% end %>
 
-<% self.title = "Ajankohtaista - " + @article.title %>
+<% self.title =  I18n.t(:news_title) + " - " + @article.title %>
 
 <%= render 'article', :article => @article %>
 

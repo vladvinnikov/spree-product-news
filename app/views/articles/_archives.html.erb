@@ -1,5 +1,5 @@
 <div id="archives">
-  <h2>Archives</h2>
+  <h2><%= I18n.t(:archives) %></h2>
   <ul>
     <% for archive_year in Article.archive_years %>
   		<li><%= link_to_archive archive_year %></li>

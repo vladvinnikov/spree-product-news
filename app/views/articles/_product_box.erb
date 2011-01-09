@@ -1,21 +1,12 @@
+<% @products.each do |product| %>
 <div class="news-prod">
 	     <div class="news-image"> 
 		<%= link_to small_image(product), product %>
 	 </div>
 	<div class="news-info">
 
-	  <h3><%= @product.name %></h3>
- 	  <%= raw @product.description[0 ... 150] + "..." %>
+	  <h3><%= product.name %></h3>
+ 	  <%= raw product.description[0 ... 200] + "..." %>
 	 </div>
 </div>
-
-<div class="news-prod">
-	     <div class="news-image"> 
-		<%= link_to small_image(product), product %>
-	 </div>
-	<div class="news-info">
-
-	  <h3><%= @product.name %></h3>
- 	  <%= raw @product.description[0 ... 250] + "..." %>
-	 </div>
-</div>
+<%end%>

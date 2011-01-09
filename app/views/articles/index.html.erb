@@ -2,13 +2,13 @@
   <%= stylesheet_link_tag 'product_news.css' %>
 <% end %>
 
-<% self.title = "Ajankohtaista" %>
+<% self.title = I18n.t(:news_title) %>
 
 <div class="container-news">
 <% if params[:tag] %>
-	<h2 class="pagetitle">News Tagged &lsquo;<%= params[:tag] %>&rsquo;</h2>
+	<h2 class="pagetitle"><%= I18n.t(:tagged) %> &lsquo;<%= params[:tag] %>&rsquo;</h2>
 <% elsif params[:year]  %>
-	<h2 class="pagetitle">Archive for <%= params[:year].to_i %>, <%= params[:year].to_i %></h2>
+	<h2 class="pagetitle"><%= I18n.t(:archive_for) %> <%= params[:year].to_i %>, <%= params[:year].to_i %></h2>
 <% end %>
 
 <%= render 'article', :article => @article %>
@@ -18,10 +18,10 @@
 
 <div class="navigation">
   <% if @total_pages > 1 && @current_page < @total_pages %>
-		<div class="alignleft"><a href="<%= url_for(:overwrite_params => {:page => @current_page + 1}) %>" >&laquo; Older Entries</a></div>
+		<div class="alignleft"><a href="<%= url_for(:overwrite_params => {:page => @current_page + 1}) %>" >&laquo; <%= I18n.t(:older_entries) %></a></div>
 	<% end %>
 	<% if @current_page > 1 %>
-		<div class="alignright"><a href="<%= url_for(:overwrite_params => {:page => @current_page - 1}) %>" >Newer Entries &raquo;</a></div>
+		<div class="alignright"><a href="<%= url_for(:overwrite_params => {:page => @current_page - 1}) %>" ><%= I18n.t(:older_entries) %> &raquo;</a></div>
 	<% end %>
 	<br class="clear" />
 </div>

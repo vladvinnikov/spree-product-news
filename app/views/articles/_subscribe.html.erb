@@ -1,6 +1,6 @@
 <div id="subscribe">
-	<h2>Subscribe</h2>
+	<h2><%= I18n.t(:subscribe) %></h2>
 	<ul>
-		<li><a id="btnRss" href="<%= Spree::Config[:news_feed_url] %>" title="Subscribe to the Railsdog RSS Feed">Railsdog RSS Feed</a></li>
+		<li><a id="btnRss" href="<%= Spree::Config[:news_feed_url] %>" title="<%= I18n.t(:subscribe) %>"><%= I18n.t(:feed) %> </a></li>
 	</ul>
 </div>

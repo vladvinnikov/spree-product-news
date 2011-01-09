@@ -13,29 +13,31 @@
   </div>
   <div>
     <% if @article.tags.present? %>
-      Tags: 
+      <%= I18n.t(:tags) %> 
       <%= raw @article.tags.split(',').map { |tag|  link_to(tag, news_tag_path(tag), :rel => 'tag')}.join(', ') %>
     <% end %>
-    <span class="date">Posted @ <%= format_date article.date %></span>    
+    <span class="date"><%= I18n.t(:posted) %> @ <%= I18n.l article.date %></span>    
   </div>
 
   <div>
     <% if @article.previous %>
-  	<div class="alignleft">Previous: <%= link_to_article @article.previous %></div>
+  	<div class="alignleft"><%= I18n.t(:next) %> : <%= link_to_article @article.previous %></div>
   	<% end %>
     <% if @article.next %>
-  	<div class="alignright">Next: <%= link_to_article @article.next %> </div>
+  	<div class="alignright"><%= I18n.t(:previous) %> : <%= link_to_article @article.next %> </div>
   	<% end %>
   	<br class="clear" />
   </div>
 </div>
 
-<% if has_extra? %>
-  <%= render 'product_box' , :product =>  @product  %>
+<% if has_products? %>
+  <%= render 'product_box' , :products =>  @products  %>
 <% end %>
 
 
-<%= render 'image_box'  %>
+<% if has_image? %>
+  <%= render 'image_box'  %>
+<% end %>
 
 </div>
 

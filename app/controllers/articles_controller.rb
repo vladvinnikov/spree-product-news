@@ -6,6 +6,7 @@ class ArticlesController < Spree::BaseController
     @current_page = (params[:page] || 1).to_i
     @total_pages = (Article.count / @per_page.to_f).ceil
     @articles = Article.find_articles(:page => @current_page)
+    @articles.reverse!
     @article = @articles.pop
     set_extra
     respond_to do |wants|

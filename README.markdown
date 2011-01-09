@@ -1,11 +1,17 @@
-= Spree Product News
+Spree Product News
+==================
 
-Adds simple news to Spree, which may be product related.
+Adds simple news to Spree, which may be product related or have an image attached.
+
 Reading text files in /content/article, which consist of yaml metadata followed by Markdown content.
 
-There is a way to specify a product for the news item, which will be rendered next to the article.
+With rake spree_product_news:new  you can get a scaffold article with timestamp and slug.
 
-You can create a skeleton new article with rake spree_product_news:new
+To specify one or several products for the article, add product_name: as a comma separated list. Each word(s) will be used for a product search and the first shown in a product box with image and description.
+ 
+Alternatively, you can add image: to the article and the image (full path) will be displayed next to the article in it's seperate box (410 pixels wide)
+
+We now polished the layout and there is it's own stylesheet included
 
 Install
 =======
@@ -23,4 +29,9 @@ Install
   rake spree_product_news:install 
 
 
-Archives and xml feed included. Very basic layout.
+Contributions welcome
+
+Torsten
+
+
+

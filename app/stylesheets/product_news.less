@@ -1,3 +1,5 @@
+@import "_mixins";
+
 .container-news {
   width: 950px;
   margin: 0 auto;
@@ -20,7 +22,6 @@
   padding: 10px;
   display: block; 
   .column(12);
-  //border-top: 1px dotted #e7a44e;
 }
 
 .news-prod {
@@ -44,3 +45,12 @@
   .column(3.5);
   display: block;
 }
+
+.news-imagebig {
+  margin: 0px 10px 10px 0;
+  padding: 5px;
+  .column(10.5);
+  .rounded_corners(3px);
+  border: 1px solid #e7a44e;
+}
+
