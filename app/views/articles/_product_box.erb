@@ -1,21 +1,21 @@
-<div class="prodinfo2">
-	     <div class="prodimage"> 
+<div class="news-prod">
+	     <div class="news-image"> 
 		<%= link_to small_image(product), product %>
 	 </div>
-	<div class="prodinfo3">
+	<div class="news-info">
 
 	  <h3><%= @product.name %></h3>
  	  <%= raw @product.description[0 ... 150] + "..." %>
 	 </div>
 </div>
 
-<div class="prodinfo2">
-	     <div class="prodimage"> 
+<div class="news-prod">
+	     <div class="news-image"> 
 		<%= link_to small_image(product), product %>
 	 </div>
-	<div class="prodinfo3">
+	<div class="news-info">
 
 	  <h3><%= @product.name %></h3>
- 	  <%= raw @product.description[0 ... 150] + "..." %>
+ 	  <%= raw @product.description[0 ... 250] + "..." %>
 	 </div>
 </div>

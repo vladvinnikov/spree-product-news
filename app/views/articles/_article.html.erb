@@ -1,8 +1,8 @@
 <div class="container-news">
 
 <div class="news">
-	  <div>
-    <h3><%= link_to_article article %></h3>
+  <div>
+  <h3><%= link_to_article article %></h3>
   </div>
 
   <div>
@@ -33,6 +33,10 @@
 <% if has_extra? %>
   <%= render 'product_box' , :product =>  @product  %>
 <% end %>
+
+
+<%= render 'image_box'  %>
+
 </div>
 
 

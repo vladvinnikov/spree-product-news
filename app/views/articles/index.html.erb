@@ -2,8 +2,9 @@
   <%= stylesheet_link_tag 'product_news.css' %>
 <% end %>
 
-<% self.title = "News" %>
+<% self.title = "Ajankohtaista" %>
 
+<div class="container-news">
 <% if params[:tag] %>
 	<h2 class="pagetitle">News Tagged &lsquo;<%= params[:tag] %>&rsquo;</h2>
 <% elsif params[:year]  %>
@@ -14,6 +15,7 @@
 <%= render :partial => 'article_small', :collection => @articles %>
 
 <% if @total_pages %>
+
 <div class="navigation">
   <% if @total_pages > 1 && @current_page < @total_pages %>
 		<div class="alignleft"><a href="<%= url_for(:overwrite_params => {:page => @current_page + 1}) %>" >&laquo; Older Entries</a></div>
@@ -30,5 +32,5 @@
   <%= render 'sidebar' %>
 
 <% end %>
-
+</div>
 <br class="clear" />
