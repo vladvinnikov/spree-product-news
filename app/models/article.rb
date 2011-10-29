@@ -6,26 +6,6 @@ class Article < FileModel
     @slug = key.split("-").last
   end
   
-  def self.find_articles(options = {})
-    options = {
-      :per_page => 10,
-      :page => 1
-    }.merge(options)
-    
-    options[:offset] = (options[:page]-1) * options[:per_page]
-    options[:limit] = options[:per_page]
-
-    if options[:year] 
-      options[:match] = %r(\/#{options[:year]})
-    end
-
-    all(options)
-  end
-
-  def self.recent(number = 5)
-    @@recent ||= all(:limit => number)
-  end
-
   def self.tagged(tag) 
     tag_index[tag.strip].to_a.map do |key|
       Article.find(key)

@@ -2,6 +2,8 @@
 class FileModel
   attr_accessor :file, :key, :meta, :body
   
+  @@files = nil
+  
   def initialize(file, key, meta, body)
     @file = file
     @key = key
@@ -18,21 +20,10 @@ class FileModel
   end
 
 
-  def self.all(options = {})
-    options = {
-      :offset => 0
-    }.merge(options)
-
-    files = get_filtered_files(options)
-
-    if options[:limit]
-      files = files[options[:offset] .. (options[:offset].to_i + options[:limit].to_i-1)]
-    end
-
-    records = files.to_a.map do |f|
+  def self.all()
+    records = files.collect do |f|
       from_file(f)
     end
-
     records
   end
 
@@ -41,15 +32,20 @@ class FileModel
   end
   
   def self.count(options = {})
-    get_filtered_files(options).length
+    files.length
   end
   
-  def self.random(options = {})
-    from_file(files[rand(all.size)])
+  def self.get_date( file )
+    parts = File.basename(file).split("-")
+    parts.pop
+    parts.join("-")
   end
-
   def self.files
-    Dir["#{content_path}/*.txt"].sort_by {|f| File.basename(f) }.reverse
+#    return @@files if @@files
+    @@files = Dir["#{content_path}/*.txt"].sort_by {|f| self.get_date(f) }
+    bases = @@files.collect {|i| self.get_date(i)}
+    puts "FILES    #{bases.join('  ')}"
+    @@files
   end
 
   def index
@@ -85,15 +81,5 @@ class FileModel
   def self.relative_path
     self.name.underscore
   end
-  
-  private
-  
-    def self.get_filtered_files(options)
-      if options[:match]
-        files.select{|f| f =~ options[:match]}
-      else
-        files
-      end
-    end
     
 end

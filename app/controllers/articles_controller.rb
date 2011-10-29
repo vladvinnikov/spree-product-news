@@ -2,12 +2,9 @@ class ArticlesController < Spree::BaseController
   rescue_from  Errno::ENOENT, :with => :render_404
   
   def index
-    @per_page = 10
-    @current_page = (params[:page] || 1).to_i
-    @total_pages = (Article.count / @per_page.to_f).ceil
-    @articles = Article.find_articles(:page => @current_page)
-    @articles.reverse!
+    @articles = Article.all
     @article = @articles.pop
+    @articles = @articles.reverse!
     set_extra
     respond_to do |wants|
       wants.html {}
@@ -16,7 +13,7 @@ class ArticlesController < Spree::BaseController
   end
   
   def archive
-    @articles = Article.find_articles(:year => params[:year] )
+    @articles = Article.all( )
     render :action => 'index'
   end
   
@@ -42,7 +39,7 @@ class ArticlesController < Spree::BaseController
         name.strip!
         prods = Product.where(["name LIKE ?", "%#{name}%"]).limit(1).first
         @products << prods if prods 
-        #puts "Adding Product #{prods ? prods.name : 'No product'}  FOR #{name}"  
+        puts "Adding Product #{prods ? prods.name : 'No product'}  FOR #{name}"  
       end
     end
     if @article.image
