@@ -28,17 +28,5 @@ namespace :spree_product_news do
     
   end
   
-  desc "Copies stylesheet to your public/stylesheets folder and the corresponding less file to app/stylesheets for modification"
-  task :install do
-
-    source = File.join(File.dirname(__FILE__), '..', '..', 'public')
-    destination = File.join(Rails.root, 'public')
-    Spree::FileUtilz.mirror_files(source, destination)
-    puts "Copied product_news.css to your public/stylesheets folder"
-    source = File.join(File.dirname(__FILE__), '..', '..', 'app' , 'stylesheets')
-    destination = File.join(Rails.root, 'app' , 'stylesheets')
-    Spree::FileUtilz.mirror_files(source, destination)
-    puts "Copied product_news.less to your app/stylesheets folder (for you to edit and process if you want)"
-  end
 end
 
